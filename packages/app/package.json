@@ -1,0 +1,9 @@
+{
+  "private": true,
+  "name": "@vibemechs/app",
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "tauri dev",
+    "build": "tauri build"
+  }
+}

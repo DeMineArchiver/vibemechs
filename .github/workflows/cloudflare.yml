@@ -1,0 +1,49 @@
+name: Cloudflare Pages
+on: 
+  push:
+    branches: 
+      - main
+      - dev
+    paths: 
+      - 'packages/website/**'
+permissions: 
+  contents: read
+  deployments: write
+concurrency: 
+  group: cloudflare-pages
+  cancel-in-progress: true
+
+
+jobs:
+  deploy:
+    environment: 
+      name: cloudflare-pages
+      url: ${{ steps.deploy.outputs.url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Set up Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          cache: yarn
+      - name: Install dependencies
+        run: yarn install
+        # run: yarn workspaces focus website
+      - name: Build
+        run: yarn :website build
+      - name: Deploy to Cloudflare Pages
+        id: deploy
+        uses: cloudflare/pages-action@270b9fcdaf8c1055fbc67c1df6b2d43fdf840edb
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_TOKEN }}
+          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
+          accountId: 38794234ecc4906051a567a03b96d5bd
+          projectName: vibemechs
+          environmentName: cloudflare-pages
+          workingDirectory: packages/website
+          directory: dist
+          wranglerVersion: 3
+
+  

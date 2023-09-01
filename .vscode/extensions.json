@@ -1,0 +1,6 @@
+{
+    "recommendations": [
+        "tauri-apps.tauri-vscode",
+        "1yib.rust-bundle"
+    ]
+}

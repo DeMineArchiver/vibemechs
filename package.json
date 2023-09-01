@@ -1,0 +1,21 @@
+{
+  "private": true,
+  "name": "vibemechs",
+  "version": "0.0.0",
+  "packageManager": "yarn@3.6.3",
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    ":app": "yarn workspace @vibemechs/app",
+    ":ui": "yarn workspace @vibemechs/ui",
+    ":website": "yarn workspace @vibemechs/website",
+    "app:dev": "yarn :app dev",
+    "app:build": "yarn :app build",
+    "ui:dev": "yarn :ui dev",
+    "ui:build": "yarn :ui build",
+    "website:dev": "yarn :website dev",
+    "website:build": "yarn :website build",
+    "website:preview": "yarn :website preview"
+  }
+}

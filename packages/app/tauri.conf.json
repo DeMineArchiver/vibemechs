@@ -1,0 +1,63 @@
+{
+  "build": {
+    "beforeDevCommand": "yarn :ui dev",
+    "beforeBuildCommand": "yarn :ui build",
+    "devPath": "http://localhost:5173/",
+    "distDir": "../ui/dist",
+    "withGlobalTauri": false
+  },
+  "package": {
+    "productName": "Vibemechs"
+  },
+  "tauri": {
+    "allowlist": {
+      "all": true
+    },
+    "updater": {
+      "active": false
+    },
+    "bundle": {
+      "active": true,
+      "identifier": "dev.deminearchiver.vibemechs",
+      "shortDescription": "",
+      "copyright": "Copyright (c) DeMineArchiver 2023",
+      "category": "Entertainment",
+      "icon": [
+        "icons/32x32.png",
+        "icons/128x128.png",
+        "icons/128x128@2x.png",
+        "icons/icon.icns",
+        "icons/icon.ico"
+      ],
+      "targets": [
+        "nsis",
+        "dmg",
+        "appimage"
+      ],
+      "appimage": {
+        "bundleMediaFramework": true
+      },
+      "windows": {
+        "allowDowngrades": true,
+        "nsis": {
+          "installMode": "currentUser",
+          "license": "../../LICENSE"
+        },
+        "webviewInstallMode": {
+          "silent": true,
+          "type": "downloadBootstrapper"
+        }
+      }
+    },
+    "macOSPrivateApi": true,
+    "security": {
+      "csp": null
+    },
+    "windows": [
+      {
+        "label": "main",
+        "visible": false
+      }
+    ]
+  }
+}
