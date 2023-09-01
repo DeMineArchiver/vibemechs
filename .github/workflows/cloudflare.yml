@@ -6,6 +6,7 @@ on:
       - dev
     paths: 
       - 'packages/website/**'
+  workflow_dispatch: 
 permissions: 
   contents: read
   deployments: write
