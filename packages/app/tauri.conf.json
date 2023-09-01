@@ -2,7 +2,7 @@
   "build": {
     "beforeDevCommand": "yarn :ui dev",
     "beforeBuildCommand": "yarn :ui build",
-    "devPath": "http://localhost:5173/",
+    "devPath": "http://localhost:5181/",
     "distDir": "../ui/dist",
     "withGlobalTauri": false
   },
