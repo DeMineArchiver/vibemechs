@@ -1,0 +1,23 @@
+[package]
+name = "tauri-plugin-iohook"
+version = "0.0.0"
+authors.workspace = true
+license.workspace = true
+homepage.workspace = true
+repository.workspace = true
+edition.workspace = true
+
+[build-dependencies]
+bindgen.workspace = true
+cmake.workspace = true
+
+[dependencies]
+tauri.workspace = true
+serde = { workspace = true, features = ["derive"]}
+serde_json.workspace = true
+
+[target.'cfg(windows)'.dependencies.windows-sys]
+workspace = true
+features = [
+  "Win32_Foundation"
+]

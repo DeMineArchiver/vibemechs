@@ -11,5 +11,6 @@ edition.workspace = true
 tauri-build.workspace = true
 
 [dependencies]
-tauri = { workspace = true, features = []}
+tauri = { workspace = true, features = ["api-all", "macos-private-api"]}
 tauri-plugin-single-instance.workspace = true
+tauri-plugin-iohook = { path = "../tauri-plugins/iohook" }

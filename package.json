@@ -4,7 +4,8 @@
   "version": "0.0.0",
   "packageManager": "yarn@3.6.3",
   "workspaces": [
-    "packages/*"
+    "packages/*",
+    "packages/tauri-plugins/*"
   ],
   "scripts": {
     ":app": "yarn workspace @vibemechs/app",

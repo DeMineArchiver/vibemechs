@@ -1,6 +1,7 @@
 [workspace]
 members = [
-    "packages/app"
+    "packages/app",
+    "packages/tauri-plugins/iohook"
 ]
 resolver = "2"
 
@@ -22,3 +23,6 @@ serde = "1.0"
 serde_json = "1.0"
 tauri-plugin-single-instance = { git = "https://github.com/tauri-apps/plugins-workspace", branch = "v1" }
 cfg-if = "1"
+bindgen = "0.66"
+cmake = "0.1"
+windows-sys = "0.48"

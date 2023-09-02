@@ -1,0 +1,4 @@
+[submodule "packages/tauri-plugins/iohook/lib/libuiohook"]
+	path = packages/tauri-plugins/iohook/lib/uiohook
+	url = https://github.com/kwhat/libuiohook.git
+	branch = 1.3

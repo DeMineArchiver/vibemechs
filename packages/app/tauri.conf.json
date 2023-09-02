@@ -56,7 +56,7 @@
     "windows": [
       {
         "label": "main",
-        "visible": false
+        "visible": true
       }
     ]
   }
