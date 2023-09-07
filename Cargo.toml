@@ -21,8 +21,12 @@ tauri = "1.4"
 tauri-build = "1.4"
 serde = "1.0"
 serde_json = "1.0"
+tauri-plugin-store = { git = "https://github.com/tauri-apps/plugins-workspace", branch = "v1" }
 tauri-plugin-single-instance = { git = "https://github.com/tauri-apps/plugins-workspace", branch = "v1" }
 cfg-if = "1"
-bindgen = "0.66"
+bindgen = "0.68.1"
 cmake = "0.1"
 windows-sys = "0.48"
+thiserror = "1.0"
+window-vibrancy = { git = "https://github.com/tauri-apps/window-vibrancy", rev = "7d6fc278c9395d5a9c9c9b496a5fa4b3ecfec227"}
+window-shadows = "0.2"

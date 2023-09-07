@@ -49,6 +49,12 @@
         }
       }
     },
+    "systemTray": {
+      "title": "Vibemechs",
+      "menuOnLeftClick": false,
+      "iconPath": "icons/icon.png",
+      "iconAsTemplate": true
+    },
     "macOSPrivateApi": true,
     "security": {
       "csp": null
@@ -56,7 +62,8 @@
     "windows": [
       {
         "label": "main",
-        "visible": true
+        "visible": false,
+        "transparent": false
       }
     ]
   }

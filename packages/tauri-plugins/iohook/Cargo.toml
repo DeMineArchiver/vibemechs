@@ -21,3 +21,6 @@ workspace = true
 features = [
   "Win32_Foundation"
 ]
+
+[features]
+custom-protocol = ["tauri/custom-protocol"]

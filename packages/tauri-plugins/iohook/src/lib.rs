@@ -1,9 +1,7 @@
-use std::sync::Mutex;
+use std::thread;
 
 mod hook;
-
-use hook::Hook;
-use tauri::{plugin::{TauriPlugin, self}, Runtime, AppHandle, Manager, RunEvent};
+use tauri::{plugin::{TauriPlugin, self}, Runtime, AppHandle, RunEvent, Manager};
 
 
 
@@ -16,22 +14,18 @@ pub fn init<R, F>(mut f: F) -> TauriPlugin<R>
     .setup(|app| {
       let handle = app.clone();
 
-      let hook = Hook::new(
-        Box::new(move |event| {
+      thread::spawn(move || {
+        hook::run(Box::new(move |event| {
+          handle.emit_all("iohook://event", event.clone()).unwrap();
           f(&handle, event);
-        })
-      );
-      hook.run();
+        }));
+      });
 
-      app.manage(
-        Mutex::new(hook)
-      );
       Ok(())
     })
-    .on_event(|app, event| {
+    .on_event(|_app, event| {
       if let RunEvent::Exit = event {
-        let hook = app.state::<Mutex<Hook>>();
-        hook.lock().unwrap().stop();
+        hook::stop();
       }
     })
     .build()
